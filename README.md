@@ -32,9 +32,13 @@ To solve this issue myself I've written this little script that allows you to cr
 
 ![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/importMacro.png)
 
-9. Choose Tools > Macros > generateTimeReport
+9. Choose generateTimeReport
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/addFunction.png)
+
+10. Choose Tools > Macros > generateTimeReport
 
 ![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/generate.png)
 
-10. When asked for permissions, give access to everything listed
-11. If you add some events to this calendar they will be shown in the summary in this sheet. That's all
+11. When asked for permissions, give access to everything listed
+12. If you add some events to this calendar they will be shown in the summary in this sheet. That's all
