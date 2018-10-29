@@ -7,12 +7,34 @@ To solve this issue myself I've written this little script that allows you to cr
 ## Tutorial
 1. Go to Google Calendar settings (gear icon)
 2. Add new calendar
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/newCalendar.png)
+
 3. Click on your new calendar and choose Integrate calendar. Here's your calendar ID - keep it somewhere
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/integrate.png)
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/calendarId.png)
+
 4. Open new Google Spreadsheet and create sheet named like "XI 2018" for November 2018 or "III 2019" for March 2019 (you can create many sheets for different months)
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/sheet.png)
+
 5. Then open Script editor and paste the script from this repository
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/scriptEditorOpening.png)
+
 6. Adjust the first line of code with your own calendar Id and amount of hours you want to work this month
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/enterCalendarId.png)
+
 7. Save project with any name you like
 8. Import macro to the spreadsheet
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/importMacro.png)
+
 9. Choose Tools > Macros > generateTimeReport
+
+![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/generate.png)
+
 10. When asked for permissions, give access to everything listed
 11. If you add some events to this calendar they will be shown in the summary in this sheet. That's all
