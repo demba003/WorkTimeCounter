@@ -23,7 +23,7 @@ To solve this issue myself I've written this little script that allows you to cr
 
 ![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/scriptEditorOpening.png)
 
-6. Adjust the first line of code with your own calendar Id and amount of hours you want to work this month
+6. Adjust the first line of code with your own calendar ID and amount of hours you want to work this month
 
 ![](https://raw.githubusercontent.com/demba003/WorkTimeCounter/master/images/enterCalendarId.png)
 
