@@ -1,10 +1,6 @@
 function generateTimeReport() {
-  // Change to your calendar ID
-  const calendarID = "xxxxxxxxxxxxxxxxxxxxxxxxxx@group.calendar.google.com"
-  // Change to how many hour and minutes per month you work
-  const hoursToWork = "110:24"
-  
-  // Polish translation
+  if (!initSettings()) {
+   // Polish translation
   const DATE = "Data"
   const FROM = "Od"
   const TO = "Do"
@@ -12,6 +8,8 @@ function generateTimeReport() {
   const HOURS_COUNT = "Ilość godzin"
   const HOURS_TOTAL = "Godzin w sumie:"
   const HOURS_LEFT = "Pozostało:"
+  const CONFIG = "Ustawienia"
+  const calendarID = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG).getRange(1, 2) .getValue()
   
   const mySheet = SpreadsheetApp.getActiveSheet();
   const myCalendar = CalendarApp.getCalendarById(calendarID)
@@ -50,10 +48,11 @@ function generateTimeReport() {
   }
   
   mySheet.appendRow([" "])
-  mySheet.appendRow([WORKING_HOURS, hoursToWork, HOURS_TOTAL, "=SUM(D2:D" + index + ")", HOURS_LEFT, "=\"" + hoursToWork + "\"- SUM(D2:D" + index + ")"])
-  mySheet.getRange("B" + (index + 2)).setNumberFormat("[hh]:mm")
-  mySheet.getRange("D" + (index + 2)).setNumberFormat("[hh]:mm")
-  mySheet.getRange("F" + (index + 2)).setNumberFormat("[hh]:mm")
+  mySheet.appendRow([WORKING_HOURS, "='" + CONFIG + "'!C" + (4 + currentMonth), HOURS_TOTAL, "=SUM(D2:D" + index + ")", HOURS_LEFT, "=B" + (index + 2) + "-SUM(D2:D" + index + ")"])
+  //mySheet.getRange("B" + (index + 2)).setNumberFormat("[hh]:mm")
+  //mySheet.getRange("D" + (index + 2)).setNumberFormat("[hh]:mm")
+  //mySheet.getRange("F" + (index + 2)).setNumberFormat("[hh]:mm")
+  }
 }
 
 function formatOutputTime(date) {
@@ -89,4 +88,35 @@ function fromRoman(str) {
     }
   }
   return result;
+}
+
+function initSettings() {
+  const CALENDAR_ID = "ID kalendarza"
+  const PART_OF_WORK = "Część etatu"
+  const MONTH = "Miesiąc"
+  const HOURS = "Godziny"
+  const MY_HOURS = "Moje godziny"
+  const CONFIG = "Ustawienia"
+  
+  if (SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG) == null) {
+    var configSheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet(CONFIG, 0);
+    configSheet.appendRow([CALENDAR_ID, "insert_id_here@group.calendar.google.com"]);
+    configSheet.appendRow([PART_OF_WORK, "0,6"]);
+    configSheet.appendRow([" "]);
+    configSheet.appendRow([PART_OF_WORK, HOURS]);
+    configSheet.appendRow(["I", "176", "=B5*$B$2"]);
+    configSheet.appendRow(["II", "160", "=B6*$B$2"]);
+    configSheet.appendRow(["III", "168", "=B7*$B$2"]);
+    configSheet.appendRow(["IV", "168", "=B8*$B$2"]);
+    configSheet.appendRow(["V", "168", "=B9*$B$2"]);
+    configSheet.appendRow(["VI", "152", "=B10*$B$2"]);
+    configSheet.appendRow(["VII", "184", "=B11*$B$2"]);
+    configSheet.appendRow(["VIII", "168", "=B12*$B$2"]);
+    configSheet.appendRow(["IX", "168", "=B13*$B$2"]);
+    configSheet.appendRow(["X", "184", "=B14*$B$2"]);
+    configSheet.appendRow(["XI", "152", "=B15*$B$2"]);
+    configSheet.appendRow(["XII", "160", "=B16*$B$2"]);
+    return true
+  }
+  return false
 }
